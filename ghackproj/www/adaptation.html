@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adaptation</title>
+    <title>Climate Adaptation</title>
 </head>
 <body>
-    <h1>Adaptation</h1>
+    <h1>Climate Adaptation</h1>
     <label for="innu">Enter City Name</label>
     <input id="innu" type="text">
     <button onclick="fetchWeather()">Submit</button>
@@ -19,9 +19,9 @@
             const apiKey = '7df79289573a3fdbbe9f6798c0c1fd0e'; // Replace with your actual API key
 
             try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
                 if (!response.ok) {
-                    throw new Error('Weather data not found');
+                    throw Error('Weather data not found');
                 }
 
                 const data = await response.json();
@@ -35,15 +35,16 @@
                 weatherInfo.innerHTML = ''; // Clear previous content
                 weatherInfo.appendChild(temperatureInfo);
 
-                // Analyze temperature and display safety and precautions
+                // Analyze temperature and display safety and precautions with line breaks
                 const safetyPrecautions = document.createElement('p');
                 if (temperatureCelsius < 10) {
-                    safetyPrecautions.textContent = 'It is cold. Wear warm clothes and stay indoors.';
-                } else if (temperatureCelsius >= 10 && temperatureCelsius < 25) {
-                    safetyPrecautions.textContent = 'It is mild. Enjoy the weather!';
+                    safetyPrecautions.innerHTML = 'It is very cold. Wear warm clothes and stay indoors.<br>Ensure adequate insulation and heating in homes and buildings.<br>Promote cold-weather clothing and gear for outdoor activities.<br>Prepare for increased energy demand and potential power outages.<br>Implement winter road maintenance and safety measures.';
+                } else if (temperatureCelsius >= 10 && temperatureCelsius < 20) {
+                    safetyPrecautions.innerHTML = 'It is mild. Enjoy the weather!<br>Emphasize the need for warm clothing and shelter.<br>Encourage energy-efficient heating options.<br>Monitor and respond to cold-related health issues.<br>Prepare for potential disruptions in transportation and services.';
                 } else {
-                    safetyPrecautions.textContent = 'It is hot. Stay hydrated and avoid direct sunlight.';
+                    safetyPrecautions.innerHTML = 'It is hot. Stay hydrated and avoid direct sunlight.<br>Ensure access to ample water and shade.<br>Educate the public on heat-related health risks.<br>Implement cooling centers and emergency response plans.<br>Promote energy conservation to reduce strain on power grids.';
                 }
+
                 weatherInfo.appendChild(safetyPrecautions);
             } catch (error) {
                 console.error('Error fetching weather data:', error);
@@ -55,3 +56,4 @@
     </script>
 </body>
 </html>
+
