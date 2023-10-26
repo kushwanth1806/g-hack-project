@@ -28,4 +28,38 @@ function onDeviceReady() {
     document.getElementById('deviceready').classList.add('ready');
 }
 
-const api = "3FpOjM8reDeEppJut0D3f2NZurtwon7h";
+const api = "7df79289573a3fdbbe9f6798c0c1fd0e";
+
+//const apiKey = 'YOUR_OPENWEATHER_API_KEY';
+//const city = 'Hyderabad'; // Replace with the desired city
+//const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}`;
+
+function fetchurl(){
+
+    let city = document.getElementById("innu").value; // Replace with the desired city
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}`;
+
+fetch(apiUrl)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Request failed');
+    }
+  })
+  .then(data => {
+    // Handle the weather data
+    console.log(data);
+    const weatherInfoDiv = document.getElementById("weather-info");
+      weatherInfoDiv.innerHTML = `
+        <h2>Weather in ${city}</h2>
+        <p>Temperature: ${data.main.temp} K</p>
+        <p>Weather: ${data.weather[0].description}</p>
+        <p>Humidity: ${data.main.humidity}%</p>
+        <p>Wind Speed: ${data.wind.speed} m/s</p>
+      `;
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
