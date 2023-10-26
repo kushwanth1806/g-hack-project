@@ -6,17 +6,52 @@
     <title>Adaptation</title>
 </head>
 <body>
-    <script src="js/index.js"></script>
-    <h1>Adaptation</h1><br>
-    <label>Enter City Name</label>
-    <input id = "innu" type="text">
-    <br>
-    <button onclick="fetchurl()">Submit</button>
+    <h1>Adaptation</h1>
+    <label for="innu">Enter City Name</label>
+    <input id="innu" type="text">
+    <button onclick="fetchWeather()">Submit</button>
 
-    <div id="weather-info">
+    <div id="weather-info"></div>
 
-    </div>
+    <script>
+        async function fetchWeather() {
+            const city = document.getElementById('innu').value;
+            const apiKey = '7df79289573a3fdbbe9f6798c0c1fd0e'; // Replace with your actual API key
 
+            try {
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}`);
+                if (!response.ok) {
+                    throw new Error('Weather data not found');
+                }
 
+                const data = await response.json();
+                const temperatureKelvin = data.main.temp;
+                const temperatureCelsius = temperatureKelvin - 273.15; // Convert temperature to Celsius
+
+                // Display the temperature
+                const weatherInfo = document.getElementById('weather-info');
+                const temperatureInfo = document.createElement('p');
+                temperatureInfo.textContent = `Temperature: ${temperatureCelsius.toFixed(2)}°C`;
+                weatherInfo.innerHTML = ''; // Clear previous content
+                weatherInfo.appendChild(temperatureInfo);
+
+                // Analyze temperature and display safety and precautions
+                const safetyPrecautions = document.createElement('p');
+                if (temperatureCelsius < 10) {
+                    safetyPrecautions.textContent = 'It is cold. Wear warm clothes and stay indoors.';
+                } else if (temperatureCelsius >= 10 && temperatureCelsius < 25) {
+                    safetyPrecautions.textContent = 'It is mild. Enjoy the weather!';
+                } else {
+                    safetyPrecautions.textContent = 'It is hot. Stay hydrated and avoid direct sunlight.';
+                }
+                weatherInfo.appendChild(safetyPrecautions);
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+                // Handle error here, such as displaying an error message to the user.
+                const weatherInfo = document.getElementById('weather-info');
+                weatherInfo.textContent = 'Error fetching weather data. Please try again later.';
+            }
+        }
+    </script>
 </body>
 </html>

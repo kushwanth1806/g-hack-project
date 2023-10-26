@@ -1,70 +1,81 @@
-<!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    http://www.apache.org/licenses/LICENSE-2.0
+/* Apply a background style */
+body {
+    background-color: #3498db; /* Blue background color */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #3D7B56; /* Dark green text color */
+}
 
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <!--
-        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-            https://cordova.apache.org/docs/en/latest/
-        Some notes:
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Climate Change Adaptation App</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <h1>Welcome to the Climate Change Adaptation App</h1>
-    </header>
+/* Style the login container */
+.login-container {
+    background: #ffffff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
 
-    <!-- Navigation Menu -->
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="articles.html">Articles</a></li>
-            <li><a href="maps.html">Maps</a></li>
-            <li><a href="adaptation.html">Adaptation Strategies</a></li>
-        </ul>
-    </nav>
+/* Style the app title */
+.app-title {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #3D7B56; /* Dark green text color */
+}
 
-    <!-- Content Area -->
-    <main>
-        <p>This is the main content area where you can provide information about climate change and adaptation strategies.</p>
-    </main>
+/* Style the login box */
+.login-box {
+    padding: 20px;
+}
 
-    <!-- Footer -->
-    <footer>
-        &copy; 2023 Climate Change Adaptation App
-    </footer>
-</body>
-</html>
+/* Style the logo */
+.logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+}
+
+/* Style the form elements */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4B946A; /* Green login button */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Add hover effect to the button */
+button:hover {
+    background-color: #3D7B56; /* Darker green on hover */
+}
