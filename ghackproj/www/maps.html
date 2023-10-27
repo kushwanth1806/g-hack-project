@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        body {
+            background-color: black;
+            margin: 0; /* Remove default margin */
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            padding: 20px 0; /* Add some padding to the heading */
+        }
+        iframe {
+            display: block;
+            margin: 0 auto; /* Center the iframe on the page */
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maps</title>
+    <title>Live Weather Map</title>
 </head>
 <body>
-    <h1>Live Weather Map</h1>
-    <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=17.425&lon=78.507&detailLat=17.425&detailLon=78.507&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+    <h1>LIVE WEATHER MAP</h1>
 
+    <iframe width="1500" height="750" src="https://embed.windy.com/embed2.html?lat=17.425&lon=78.507&detailLat=17.425&detailLon=78.507&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
 </body>
 </html>
